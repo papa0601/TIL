@@ -34,5 +34,26 @@ for lyric_type, lyric in zip(lyrics_type_list, lyrics):
 - 내가 활용하지 못하는 기능들이 많다, 자만하지 말자.
 - zip()은 내가 배웠던 것이지만 써먹지 못했다, 이런 죽은 지식을 줄이자!
 
+## 3-1. 💡 Additional Ideas
+- zip을 활용하면, dict의 key: value를 깔끔하게 매칭시킬 수 있다!
+```python
+# 키-값 쌍으로 묶어서 딕셔너리 생성
+lyric_dict = dict(zip(lyrics_type_list, lyrics))
+```
+- strict 옵션을 주어, 길이가 다를 때 오류를 발생시킬 수 있다 (기본값은 그냥 더 짧은 리스트 기준으로 짤림) (python 3.10 이상)
+```python
+# 길이가 다르면 에러를 발생시켜 실수를 방지함
+for lyric_type, lyric in zip(lyrics_type_list, lyrics, strict=True):
+    # ... (생략)
+```
+오류가 발생한다
+```python
+Traceback (most recent call last):
+  File "...\TIL\ref_test.py", line 4, in <module>
+    for char, num in zip(lyrics_type_list, lyrics, strict=True):
+                     ~~~^^^^^^^^^^^^^^^^^^^
+ValueError: zip() argument 2 is longer than argument 1
+```
+
 ## 4. 🔗 Reference
-- 
+- https://docs.python.org/3/library/functions.html#zip
